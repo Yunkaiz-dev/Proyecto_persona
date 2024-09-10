@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace Proyecto_persona.Models;
 
 public partial class Persona
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     public string PrimerNombre { get; set; } = null!;
@@ -15,7 +19,7 @@ public partial class Persona
 
     public string? SegundoApellido { get; set; }
 
-    public int Cedula { get; set; }
+    public string? Cedula { get; set; }
 
     public int AñoNacimiento { get; set; }
 
@@ -23,9 +27,9 @@ public partial class Persona
 
     public int DiaNacimiento { get; set; }
 
-    public int CodigoAreaNumero { get; set; }
+    public string? CodigoAreaNumero { get; set; }
 
-    public int CodigoPaisNumero { get; set; }
+    public string? CodigoPaisNumero { get; set; }
 
     public int? CasaNumeroDireccion { get; set; }
 
