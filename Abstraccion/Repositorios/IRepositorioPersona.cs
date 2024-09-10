@@ -9,13 +9,13 @@ namespace Proyecto_persona.Abstraccion.Repositorios
     
     public interface IRepositorioPersona
     {
-        List<PersonaDTO> Get();
+        List<Persona> Get();
         
-        PersonaDTO GetById(int id);
+        Persona GetById(int id);
         
-        PersonaDTO Create(CrearPersonaDTO crearPersonaDTO);
+        Persona Create(CrearPersonaDTO crearPersonaDTO);
   
-        PersonaDTO Update(ActualizarPersonaDTO actualizarPersonaDTO);
+        Persona Update(int id,ActualizarPersonaDTO actualizarPersonaDTO);
 
         void Delete(int id);
         
