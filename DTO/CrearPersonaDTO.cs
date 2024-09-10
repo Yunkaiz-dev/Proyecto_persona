@@ -10,7 +10,7 @@
 
         public string? SegundoApellido { get; set; }
 
-        public int Cedula { get; set; }
+        public string? Cedula { get; set; }
 
         public int AñoNacimiento { get; set; }
 
@@ -18,9 +18,9 @@
 
         public int DiaNacimiento { get; set; }
 
-        public int CodigoAreaNumero { get; set; }
+        public string? CodigoAreaNumero { get; set; }
 
-        public int CodigoPaisNumero { get; set; }
+        public string? CodigoPaisNumero { get; set; }
 
         public int? CasaNumeroDireccion { get; set; }
 
