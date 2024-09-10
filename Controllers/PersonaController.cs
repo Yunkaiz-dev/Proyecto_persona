@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Proyecto_persona.Abstraccion.Servicios;
+using Proyecto_persona.DTO;
+using Proyecto_persona.Implementaciones.Servicios;
 using System.Runtime.CompilerServices;
 
 namespace Proyecto_persona.Controllers
@@ -9,28 +12,43 @@ namespace Proyecto_persona.Controllers
     [ApiController]
     public class PersonaController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult Create()
+        private readonly IServicioPersona service;
+        public PersonaController(IServicioPersona Servicio)
         {
-            string result = "Estoy retornando un Post";
+            service = Servicio;
+            
+        }
+
+        [HttpPost]
+        public IActionResult Create(CrearPersonaDTO persona)
+        { 
+            var result = service.Create(persona);
             return Ok(result);
+            
         }
         [HttpGet]
         public IActionResult Index()
         {
-            string result = "Estoy retornando un Get";
+            var result = service.Get(); 
             return Ok(result);
         }
-        [HttpDelete]
-        public IActionResult Delete()
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            string result = "Estoy retornando un Delete";
+            service.Delete(id);
+            return Ok();
+        }
+        [HttpPut("{id}")]
+        public IActionResult Update(int id,ActualizarPersonaDTO Persona)
+        {
+            var result = service.Update(id,Persona);
             return Ok(result);
         }
-        [HttpPatch]
-        public IActionResult Update()
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
         {
-            string result = "Estoy retornando un Patch";
+            var result = service.GetById(id);
             return Ok(result);
         }
     }
